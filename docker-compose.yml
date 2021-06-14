@@ -1,0 +1,11 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    volumes:
+    - ./initial_sql_script.sql:/docker-entrypoint-initdb.d/initial_sql_script.sql
+    ports:
+    - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=mysecretpassword
+      - POSTGRES_USER=postgres
